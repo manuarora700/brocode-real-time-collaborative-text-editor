@@ -1,0 +1,19 @@
+{
+  "name": "brocode-real-time-collaborative-text-editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuarora700/brocode-real-time-collaborative-text-editor.git"
+  },
+  "author": "Manu Arora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manuarora700/brocode-real-time-collaborative-text-editor/issues"
+  },
+  "homepage": "https://github.com/manuarora700/brocode-real-time-collaborative-text-editor#readme"
+}
