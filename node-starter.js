@@ -50,6 +50,27 @@ app.post('/messages/', function(req, res) {
 	messages.push(new_message);
 	res.send('New message added!');
 })
+
+// DELETE - localhost:3000/messages
+app.delete('/messages/:id', function(req, res) {
+	var id = parseInt(req.params.id, 10);
+	var flag = false;
+
+	// Looping through messages
+	for(var i = 0; i < messages.length; i++) {
+		if(messages[i].id === id) {
+			messages.splice(i, 1);
+			flag = true;
+			break;
+		}
+	}
+
+	if (!flag) {
+		res.send('Cannot find any messages with this ID');
+	} else {
+		res.send('Message with ID = ' + id + ' has been deleted');
+	}
+})
 app.listen(3000, function() {
 	console.log("Server is running...")
 });
