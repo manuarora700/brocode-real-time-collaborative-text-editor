@@ -1,36 +1,24 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+
 var app = express()
 
-var messages = [
-{
-	id: 1,
-	name: 'Manu Arora',
-	content: 'Go for lunch tomorrow',
-	read: false
-},
-{
-	id: 2,
-	name: 'Yash Saluja',
-	content: 'Trying to study something',
-	read: false
-},
-{
-	id: 3,
-	name: 'Lakshit Kumar Singh',
-	content: 'Placement lag gayi bro!',
-	read: true
-}	
-];
+var messages = [];
+var id = 1;
 
+app.use(bodyParser.json());
+
+
+// Get - localhost:3000/
 app.get('/', function(req, res) {
 	res.send('Hello world!, Paaji here')
 });
-
+// GET - localhost:3000/messages
 app.get('/messages', function(req, res) {
 	res.json(messages);
 });
 
-// localhost:3000/messages/2
+// GET - localhost:3000/messages/2
 app.get('/messages/:id', function(req, res) {
 	// res.send(req.params.id);
 	var id = parseInt(req.params.id, 10);
@@ -50,7 +38,18 @@ app.get('/messages/:id', function(req, res) {
 	}
 })
 
-
+// POST - localhost:3000/messages
+app.post('/messages/', function(req, res) {
+	var body = req.body
+	var new_message = {
+		id: id++,
+		name: body.name,
+		content: body.content,
+		read: body.read
+	}
+	messages.push(new_message);
+	res.send('New message added!');
+})
 app.listen(3000, function() {
 	console.log("Server is running...")
 });

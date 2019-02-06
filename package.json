@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/manuarora700/brocode-real-time-collaborative-text-editor#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4"
   }
 }
