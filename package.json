@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/manuarora700/brocode-real-time-collaborative-text-editor/issues"
   },
-  "homepage": "https://github.com/manuarora700/brocode-real-time-collaborative-text-editor#readme"
+  "homepage": "https://github.com/manuarora700/brocode-real-time-collaborative-text-editor#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
