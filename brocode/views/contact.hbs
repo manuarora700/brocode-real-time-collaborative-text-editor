@@ -1,0 +1,22 @@
+<h1 class="text-center contact-custom">Contact Us</h1>
+<form class="col-md-6 offset-md-3"method="post">
+	{{#each errorMessages}}
+		<div class="alert alert-danger">
+			{{this.msg}}
+		</div>
+	{{/each}}
+  <div class="form-group">
+    <label><strong>Name</strong></label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name" name="name" value = {{name}}>
+  </div>
+  <div class="form-group">
+    <label><strong>Email address</strong></label>
+    <input type="email" class="form-control" placeholder="Your Email" name="email" value ={{email}}>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label><strong>Message</strong></label>
+    <textarea class="form-control" rows="3" name="message">{{message}}</textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
