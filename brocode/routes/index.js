@@ -49,4 +49,5 @@ router.route('/contact')
 			});
 		}
 	});
+
 module.exports = router;
