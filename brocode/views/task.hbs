@@ -8,7 +8,7 @@
 		<div class="col-md-4" id="chatbox">
 			<h4>Chatbox 💬</h4>
 			<hr>
-			<div class="panel panel-primary">
+<!-- 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					CHAT ROOM
 					<span class="pull-right" id="chatbox-username">
@@ -30,10 +30,34 @@
 						</span>
 					</div>
 				</div>
+			</div> -->
+			<div class="card">
+				<div class="card-header">
+					CHAT ROOM
+					<span class="float-right" id="chatbox-username">
+						{{#if user}}
+							{{user.name}}
+						{{/if}}
+					</span>
+				</div>
+				<div class="card-body">
+					<ul class="list-group list-group-flush" style="height: 300px; overflow-y: scroll" id="chatbox-listMessages">
+						
+					</ul>
+				</div>
+				<div class="card-footer">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Enter message" id="userMessage">
+						<span class="input-group-btn"> 
+							<button type="button" class="btn btn-primary" onclick="sendMessage()">Send Message</button>
+						</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<input type="hidden" value="{{roomId}}" id="roomId" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/mode/javascript/javascript.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
@@ -43,6 +67,7 @@
 		lineNumbers: true,
 		theme: "monokai"
 	});
+	// editor.setSize(800, 500);
 
 	var username = $("#chatbox-username").val();
 	if(username === "") {
@@ -51,10 +76,13 @@
 		$("#chatbox-username").text(username);
 	}
 
-	var userMessage = function(name, text) {	return('<li class="media"> <div class= "media-body"> <div class="media">' + 
-		'<div class="media-body"/>' + 
+	var roomId = $('#roomId').val();
+	socket.emit('joinRoom', {room: roomId});
+
+	var userMessage = function(name, text) {	return('<li class="list-group-item"> <div class= "list-group"> <div>' + 
+		'<div/>' + 
 		'<b>' + name + '</b> : ' + text + 
-		'<hr/> </div></div></div></li>'
+		'</div></div></div></li>'
 		);
 	}
 
