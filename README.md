@@ -10,4 +10,5 @@ Brocode is a real time collaborative text editor; It has features like real time
 * Javascript
 * MongoDB
 
-Deployed at : https://damp-oasis-22584.herokuapp.com
+previously at : https://damp-oasis-22584.herokuapp.com
+previously at : https://pure-fortress-78798.herokuapp.com
